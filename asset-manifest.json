@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/counterpart-demo/static/css/main.809d800f.chunk.css",
-    "main.js": "/counterpart-demo/static/js/main.47cb83a2.chunk.js",
-    "main.js.map": "/counterpart-demo/static/js/main.47cb83a2.chunk.js.map",
+    "main.js": "/counterpart-demo/static/js/main.ee6578b5.chunk.js",
+    "main.js.map": "/counterpart-demo/static/js/main.ee6578b5.chunk.js.map",
     "runtime-main.js": "/counterpart-demo/static/js/runtime-main.0ec724bb.js",
     "runtime-main.js.map": "/counterpart-demo/static/js/runtime-main.0ec724bb.js.map",
     "static/css/2.bc553a60.chunk.css": "/counterpart-demo/static/css/2.bc553a60.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.bc553a60.chunk.css",
     "static/js/2.a80ce3fc.chunk.js",
     "static/css/main.809d800f.chunk.css",
-    "static/js/main.47cb83a2.chunk.js"
+    "static/js/main.ee6578b5.chunk.js"
   ]
 }
