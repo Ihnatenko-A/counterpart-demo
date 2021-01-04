@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## link to project on github pages:
+
+`https://ihnatenko-a.github.io/counterpart-demo`;
+
 ## project structure:
 
 `src/components/` contains components for the app.
