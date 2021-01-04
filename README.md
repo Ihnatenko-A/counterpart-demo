@@ -1,3 +1,7 @@
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## project structure:
 
 `src/components/` contains components for the app.
@@ -7,10 +11,6 @@ Typical component consist of folder named after component, inside which are two 
 `src/helpers/` contain currently only validator.tsx used for validating form fields.
 
 `src/store/` contain action creators, action types, and reducer files.
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
