@@ -1,5 +1,5 @@
  import React from "react";
- import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
  
  import Button from '@material-ui/core/Button';
 
@@ -9,7 +9,7 @@
  
  function AppRouter() {
    return (
-     <Router>
+     <Router basename="/">
        <div>
          <nav className="navbar">
            <ul className="navbar-menu">
@@ -24,9 +24,10 @@
 
            </ul>
          </nav>
- 
-         <Route path="/" exact component={HomePage} />
-         <Route path="/collect" component={CollectPage} />
+         <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/collect" component={CollectPage} />
+         </Switch>
        </div>
      </Router>
    );

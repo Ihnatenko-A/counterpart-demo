@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -10,6 +11,12 @@ import { useStyles } from './styles';
 const HomePage = () => {
 
   const classes = useStyles();
+
+  const history = useHistory();
+
+  const onClick = () => {
+    history.push('/collect');
+  }
 
   return (
     <React.Fragment>
@@ -23,7 +30,7 @@ const HomePage = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                href='collect'
+                onClick={onClick}
               >
                 Take a quiz
               </Button>
