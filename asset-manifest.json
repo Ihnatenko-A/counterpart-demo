@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/form-with-typescript-demo/static/css/main.809d800f.chunk.css",
-    "main.js": "/form-with-typescript-demo/static/js/main.33aa5d1f.chunk.js",
-    "main.js.map": "/form-with-typescript-demo/static/js/main.33aa5d1f.chunk.js.map",
+    "main.js": "/form-with-typescript-demo/static/js/main.3210d3e9.chunk.js",
+    "main.js.map": "/form-with-typescript-demo/static/js/main.3210d3e9.chunk.js.map",
     "runtime-main.js": "/form-with-typescript-demo/static/js/runtime-main.023caf6e.js",
     "runtime-main.js.map": "/form-with-typescript-demo/static/js/runtime-main.023caf6e.js.map",
     "static/css/2.e1b4a124.chunk.css": "/form-with-typescript-demo/static/css/2.e1b4a124.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.e1b4a124.chunk.css",
     "static/js/2.7a2d1e47.chunk.js",
     "static/css/main.809d800f.chunk.css",
-    "static/js/main.33aa5d1f.chunk.js"
+    "static/js/main.3210d3e9.chunk.js"
   ]
 }
