@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## link to project on github pages:
 
-`https://ihnatenko-a.github.io/counterpart-demo`;
+`https://ihnatenko-a.github.io/form-with-typescript-demo`;
 
 ## project structure:
 
