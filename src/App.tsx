@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+ import React from "react";
+ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+ 
+ import Button from '@material-ui/core/Button';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ import CollectPage from './scenes/CollectPage'
+ import HomePage from './scenes/HomePage'
 
-export default App;
+ 
+ function AppRouter() {
+   return (
+     <Router>
+       <div>
+         <nav className="navbar">
+           <ul className="navbar-menu">
+
+             <li>
+               <Link to="/">
+                <Button variant="contained" color="primary">
+                  Home
+                </Button>
+              </Link>
+             </li>
+
+           </ul>
+         </nav>
+ 
+         <Route path="/" exact component={HomePage} />
+         <Route path="/collect/:id" component={CollectPage} />
+       </div>
+     </Router>
+   );
+ }
+export default AppRouter;

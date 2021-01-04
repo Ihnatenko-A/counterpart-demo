@@ -1,0 +1,74 @@
+import * as actionTypes from "./actionTypes"
+
+const initialState: PersonalInfoState = {
+  firstName: {
+    value: '',
+    error: false,
+    errorText: 'Incorrect entry'
+  },
+  middleName: {
+    value: '',
+    error: false,
+    errorText: 'Incorrect entry'
+  },
+  lastName: {
+    value: '',
+    error: false,
+    errorText: 'Incorrect entry'
+  },
+  email: {
+    value: '',
+    error: false,
+    errorText: 'Incorrect entry'
+  },
+  musicalPreferences: {
+    preference: [],
+    error: false,
+    errorText: 'Choose at least one variant',
+    options: [
+      'Spotify',
+      'Google Music',
+      'Pandora',
+      'Other'
+    ]
+  }
+}
+
+const reducer = (
+  state: PersonalInfoState = initialState,
+  action: PersonalInfoAction
+): PersonalInfoState => {
+  switch (action.type) {
+    case actionTypes.CHANGE_VALUE:
+      return {
+        ...state,
+        [action.name]: {
+          ...state[action.name],
+          value: action.payload,
+          error: false,
+        },
+      }
+
+    case actionTypes.SET_PREFERENCE:
+      return {
+        ...state,
+        musicalPreferences: {
+          ...state.musicalPreferences,
+          preference: action.array,
+          error: false,
+        }
+      }
+
+    case actionTypes.SET_ERROR:
+      return {
+        ...state,
+        [action.name]: {
+          ...state[action.name],
+          error: true,
+        }
+      }
+  }
+  return state
+}
+
+export default reducer
