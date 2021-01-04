@@ -1,3 +1,13 @@
+## project structure:
+
+`src/components/` contains components for the app.
+
+Typical component consist of folder named after component, inside which are two main files: Component.tsx, which holds respective component and index.tsx used for importing component in other files. Optional there may be /components folder with inner sub components, and utils.tsx/styles.tsx file, named depending on data inside.
+
+`src/helpers/` contain currently only validator.tsx used for validating form fields.
+
+`src/store/` contain action creators, action types, and reducer files.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
