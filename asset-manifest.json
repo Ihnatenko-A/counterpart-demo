@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/counterpart-demo/static/css/main.809d800f.chunk.css",
-    "main.js": "/counterpart-demo/static/js/main.b5f326f6.chunk.js",
-    "main.js.map": "/counterpart-demo/static/js/main.b5f326f6.chunk.js.map",
-    "runtime-main.js": "/counterpart-demo/static/js/runtime-main.0ec724bb.js",
-    "runtime-main.js.map": "/counterpart-demo/static/js/runtime-main.0ec724bb.js.map",
-    "static/css/2.bc553a60.chunk.css": "/counterpart-demo/static/css/2.bc553a60.chunk.css",
-    "static/js/2.0595ad75.chunk.js": "/counterpart-demo/static/js/2.0595ad75.chunk.js",
-    "static/js/2.0595ad75.chunk.js.map": "/counterpart-demo/static/js/2.0595ad75.chunk.js.map",
-    "index.html": "/counterpart-demo/index.html",
-    "static/css/2.bc553a60.chunk.css.map": "/counterpart-demo/static/css/2.bc553a60.chunk.css.map",
-    "static/css/main.809d800f.chunk.css.map": "/counterpart-demo/static/css/main.809d800f.chunk.css.map",
-    "static/js/2.0595ad75.chunk.js.LICENSE.txt": "/counterpart-demo/static/js/2.0595ad75.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/counterpart-demo/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
+    "main.css": "/counterpartdemo/static/css/main.809d800f.chunk.css",
+    "main.js": "/counterpartdemo/static/js/main.b5f326f6.chunk.js",
+    "main.js.map": "/counterpartdemo/static/js/main.b5f326f6.chunk.js.map",
+    "runtime-main.js": "/counterpartdemo/static/js/runtime-main.275bdc0f.js",
+    "runtime-main.js.map": "/counterpartdemo/static/js/runtime-main.275bdc0f.js.map",
+    "static/css/2.2e0010d6.chunk.css": "/counterpartdemo/static/css/2.2e0010d6.chunk.css",
+    "static/js/2.0595ad75.chunk.js": "/counterpartdemo/static/js/2.0595ad75.chunk.js",
+    "static/js/2.0595ad75.chunk.js.map": "/counterpartdemo/static/js/2.0595ad75.chunk.js.map",
+    "index.html": "/counterpartdemo/index.html",
+    "static/css/2.2e0010d6.chunk.css.map": "/counterpartdemo/static/css/2.2e0010d6.chunk.css.map",
+    "static/css/main.809d800f.chunk.css.map": "/counterpartdemo/static/css/main.809d800f.chunk.css.map",
+    "static/js/2.0595ad75.chunk.js.LICENSE.txt": "/counterpartdemo/static/js/2.0595ad75.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/counterpartdemo/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ec724bb.js",
-    "static/css/2.bc553a60.chunk.css",
+    "static/js/runtime-main.275bdc0f.js",
+    "static/css/2.2e0010d6.chunk.css",
     "static/js/2.0595ad75.chunk.js",
     "static/css/main.809d800f.chunk.css",
     "static/js/main.b5f326f6.chunk.js"
