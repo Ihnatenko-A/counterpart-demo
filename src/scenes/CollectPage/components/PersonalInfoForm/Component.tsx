@@ -1,122 +1,148 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-import { inputToState } from '../../../../store/actionCreators'
+import { inputToState } from 'store/actionCreators'
+
+import { useStyles } from './utils';
+import { setError } from 'store/actionCreators'
 
 const MusicalPreferencesForm = ({
   dispatch,
   firstName,
-  firstNameError,
-  firstNameErrorText,
   middleName,
-  middleNameError,
-  middleNameErrorText,
   lastName,
-  lastNameError,
-  lastNameErrorText,
   email,
-  emailError,
-  emailErrorText,
 } : {
   dispatch: any,
-  firstName: string,
-  firstNameError: boolean,
-  firstNameErrorText: string,
-  middleName: string,
-  middleNameError: boolean,
-  middleNameErrorText: string,
-  lastName: string,
-  lastNameError: boolean,
-  lastNameErrorText: string,
-  email: string,
-  emailError: boolean,
-  emailErrorText: string,
-  }) => {
+  firstName: FormFieldParams,
+  middleName: FormFieldParams,
+  lastName: FormFieldParams,
+  email: FormFieldParams,
+}) => {
+  const classes = useStyles();
+  const history = useHistory();
+
+  const validateStepOne = () => {
+
+    let isValid: boolean = true;
+    const emailRegex = RegExp(/\S+@\S+\.\S+/);
+
+    if (!firstName.value) {
+      dispatch(setError('firstName'))
+      isValid = false;
+    }
+    
+    if (!lastName.value) {
+      dispatch(setError('lastName'))
+      isValid = false;
+    }
+
+    if (!email || !emailRegex.test(email.value)) {
+      dispatch(setError('email'))
+      isValid = false;
+    }
+
+    return isValid;
+  }
 
   const onInput = (event: any) => {
     dispatch(inputToState(event))
   }
 
+  const handleClick = () => {
+    if (validateStepOne()) {
+      history.push(`/collect/2`)
+    }
+  }
+
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Enter your personal info
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="firstName"
-            name="firstName"
-            label="First name"
-            onChange={onInput}
-            fullWidth
-            autoComplete="given-name"
-            value={firstName}
-            error={firstNameError}
-            helperText={firstNameError && firstNameErrorText}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Last name"
-            onChange={onInput}
-            fullWidth
-            value={lastName}
-            error={lastNameError}
-            helperText={lastNameError && lastNameErrorText}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="middleName"
-            name="middleName"
-            label="Middle Name"
-            onChange={onInput}
-            fullWidth
-            value={middleName}
-            error={middleNameError}
-            helperText={middleNameError && middleNameErrorText}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="email"
-            name="email"
-            label="Email line"
-            onChange={onInput}
-            fullWidth
-            value={email}
-            error={emailError}
-            helperText={emailError && emailErrorText}
-          />
-        </Grid>
+      <Grid item xs={12}>
+        <React.Fragment>
+        <Typography variant="h6" gutterBottom>
+          Enter your personal info
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="firstName"
+              name="firstName"
+              label="First name"
+              onChange={onInput}
+              fullWidth
+              value={firstName.value}
+              error={firstName.error}
+              helperText={firstName.errorText}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="lastName"
+              name="lastName"
+              label="Last name"
+              onChange={onInput}
+              fullWidth
+              value={lastName.value}
+              error={lastName.error}
+              helperText={lastName.errorText}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="middleName"
+              name="middleName"
+              label="Middle Name"
+              onChange={onInput}
+              fullWidth
+              value={middleName.value}
+              error={middleName.error}
+              helperText={middleName.errorText}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="email"
+              name="email"
+              label="Email line"
+              onChange={onInput}
+              fullWidth
+              value={email.value}
+              error={email.error}
+              helperText={email.errorText}
+            />
+          </Grid>
 
+        </Grid>
+      </React.Fragment>
+      </Grid>
+      <Grid item xs={12}>
+        <div className={classes.buttons}>
+          <Button
+            onClick={handleClick}
+            className={classes.button}
+            variant="contained"
+            color="primary"
+          >
+            Next
+          </Button>
+        </div>
       </Grid>
     </React.Fragment>
   );
 }
 
 const mapState = (state: PersonalInfoState) => ({
-  firstName: state.firstName.value,
-  firstNameError: state.firstName.error,
-  firstNameErrorText: state.firstName.errorText,
-  middleName: state.middleName.value,
-  middleNameError: state.middleName.error,
-  middleNameErrorText: state.middleName.errorText,
-  lastName: state.lastName.value,
-  lastNameError: state.lastName.error,
-  lastNameErrorText: state.lastName.errorText,
-  email: state.email.value,
-  emailError: state.email.error,
-  emailErrorText: state.email.errorText,
+  firstName: state.firstName,
+  middleName: state.middleName,
+  lastName: state.lastName,
+  email: state.email,
 });
 
 const connector = connect(mapState)

@@ -29,6 +29,12 @@ interface PersonalInfoState {
   }
 }
 
+type FormFieldParams = {
+  value: string
+  error: boolean
+  errorText: string
+}
+
 type TParams = { id: string };
 
 type PersonalInfoAction = {

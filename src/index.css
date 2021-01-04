@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+.MuiFormHelperText-root:not(.Mui-error) {
+  visibility: hidden;
+}
+
 .navbar {
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2);
   display: flex;
