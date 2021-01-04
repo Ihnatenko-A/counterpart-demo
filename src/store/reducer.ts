@@ -76,10 +76,12 @@ const reducer = (
       };
 
     case actionTypes.PREV_STEP:
-    return {
-      ...state,
-      step: state.step - 1
-    };
+      return {
+        ...state,
+        step: state.step - 1
+      };
+    case actionTypes.CLEAR_STATE:
+      return initialState;
   }
   return state;
 };

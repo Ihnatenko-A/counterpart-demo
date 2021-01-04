@@ -5,16 +5,19 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import { connect } from 'react-redux'
 
 import { useStyles } from './styles';
+import { clearState } from 'store/actionCreators';
 
-const HomePage = () => {
+const HomePage = ({ dispatch } : { dispatch: any }) => {
 
   const classes = useStyles();
 
   const history = useHistory();
 
   const onClick = () => {
+    dispatch(clearState());
     history.push('/collect');
   }
 
@@ -42,4 +45,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default connect()(HomePage);

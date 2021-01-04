@@ -23,3 +23,7 @@ export const nextStep = () => ({
 export const prevStep = () => ({
   type: actionTypes.PREV_STEP,
 });
+
+export const clearState = () => ({
+  type: actionTypes.CLEAR_STATE,
+});
