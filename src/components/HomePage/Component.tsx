@@ -27,7 +27,7 @@ const HomePage = ({ dispatch } : { dispatch: any }) => {
       <Container maxWidth="sm" >
         <Paper className={classes.paper}>
           <Typography component="div" style={{ minHeight: '330px' }} >
-            <h2>Welcome to frontend Case Study!</h2>
+            <h2 style={{textAlign: 'center'}}>Welcome to frontend Case Study!</h2>
 
               <div className={classes.buttons}>
               <Button
