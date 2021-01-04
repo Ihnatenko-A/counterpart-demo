@@ -3,8 +3,8 @@
  
  import Button from '@material-ui/core/Button';
 
- import CollectPage from './scenes/CollectPage'
- import HomePage from './scenes/HomePage'
+ import CollectPage from './components/CollectPage';
+ import HomePage from './components/HomePage';
 
  
  function AppRouter() {
@@ -26,7 +26,7 @@
          </nav>
  
          <Route path="/" exact component={HomePage} />
-         <Route path="/collect/:id" component={CollectPage} />
+         <Route path="/collect" component={CollectPage} />
        </div>
      </Router>
    );

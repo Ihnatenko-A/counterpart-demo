@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-import { useStyles } from './utils';
+import { useStyles } from './styles';
 
 const HomePage = () => {
 
@@ -23,7 +23,7 @@ const HomePage = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                href='collect/1'
+                href='collect'
               >
                 Take a quiz
               </Button>
@@ -32,7 +32,7 @@ const HomePage = () => {
         </Paper>
       </Container>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default HomePage;

@@ -1,27 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
-import { setPreference } from 'store/actionCreators'
-import { useStyles } from './utils';
-import { setError } from 'store/actionCreators'
+import { useStyles } from './styles';
+import { setError, nextStep, prevStep, setPreference } from 'store/actionCreators';
+import { isEmptyArray } from 'helpers/validators';
 
 const PersonalInfoForm = ({
   options,
   preference,
   error,
-  dispatch
+  dispatch,
 } : {
   options: Array<string>,
   error: boolean,
   preference: Array<string>,
-  dispatch: any
+  dispatch: any,
 }) => {
   const classes = useStyles();
 
@@ -29,28 +27,26 @@ const PersonalInfoForm = ({
 
     let isValid: boolean = true;
 
-    if (!preference.length) {
-      dispatch(setError('musicalPreferences'))
+    if (!isEmptyArray(preference)) {
+      dispatch(setError('musicalPreferences'));
       isValid = false;
     }
 
     return isValid;
-  }
+  };
 
   const handleClick = () => {
     if (validateStepTwo()) {
-      history.push(`/collect/3`)
+      dispatch(nextStep());
     }
-  }
-
-  const history = useHistory();
+  };
 
   const handleBack = () => {
-    history.push(`/collect/1`)
-  }
+    dispatch(prevStep());
+  };
 
   const handleChange = (event: any) => {
-    dispatch(setPreference(event.target.value))
+    dispatch(setPreference(event.target.value));
   };
 
   return (
@@ -60,7 +56,6 @@ const PersonalInfoForm = ({
           <Typography variant="h6" gutterBottom>
             Which streaming services do you use?
           </Typography>
-          <InputLabel id="demo-multiple-name-label">Name</InputLabel>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Select
@@ -103,7 +98,7 @@ const PersonalInfoForm = ({
       </Grid>
     </React.Fragment>
   );
-}
+};
 
 const mapState = (state: PersonalInfoState) => ({
   options: state.musicalPreferences.options,
@@ -112,6 +107,6 @@ const mapState = (state: PersonalInfoState) => ({
   errorText: state.musicalPreferences.errorText
 });
 
-const connector = connect(mapState)
+const connector = connect(mapState);
 
 export default connector(PersonalInfoForm);

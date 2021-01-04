@@ -23,4 +23,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export { useStyles }
+export { useStyles };

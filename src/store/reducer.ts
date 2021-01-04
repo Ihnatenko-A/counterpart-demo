@@ -1,6 +1,7 @@
-import * as actionTypes from "./actionTypes"
+import * as actionTypes from "./actionTypes";
 
 const initialState: PersonalInfoState = {
+  step: 1,
   firstName: {
     value: '',
     error: false,
@@ -32,7 +33,7 @@ const initialState: PersonalInfoState = {
       'Other'
     ]
   }
-}
+};
 
 const reducer = (
   state: PersonalInfoState = initialState,
@@ -47,7 +48,7 @@ const reducer = (
           value: action.payload,
           error: false,
         },
-      }
+      };
 
     case actionTypes.SET_PREFERENCE:
       return {
@@ -57,7 +58,7 @@ const reducer = (
           preference: action.array,
           error: false,
         }
-      }
+      };
 
     case actionTypes.SET_ERROR:
       return {
@@ -66,9 +67,21 @@ const reducer = (
           ...state[action.name],
           error: true,
         }
-      }
-  }
-  return state
-}
+      };
+    
+    case actionTypes.NEXT_STEP:
+      return {
+        ...state,
+        step: state.step + 1
+      };
 
-export default reducer
+    case actionTypes.PREV_STEP:
+    return {
+      ...state,
+      step: state.step - 1
+    };
+  }
+  return state;
+};
+
+export default reducer;

@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-import { inputToState } from 'store/actionCreators'
-
-import { useStyles } from './utils';
-import { setError } from 'store/actionCreators'
+import { inputToState, setError, nextStep } from 'store/actionCreators';
+import { useStyles } from './styles';
+import { isEmail, isEmpty } from 'helpers/validators';
 
 const MusicalPreferencesForm = ({
   dispatch,
@@ -25,40 +23,39 @@ const MusicalPreferencesForm = ({
   email: FormFieldParams,
 }) => {
   const classes = useStyles();
-  const history = useHistory();
 
   const validateStepOne = () => {
 
     let isValid: boolean = true;
-    const emailRegex = RegExp(/\S+@\S+\.\S+/);
+    
 
-    if (!firstName.value) {
-      dispatch(setError('firstName'))
+    if (!isEmpty(firstName.value)) {
+      dispatch(setError('firstName'));
       isValid = false;
     }
     
-    if (!lastName.value) {
-      dispatch(setError('lastName'))
+    if (!isEmpty(lastName.value)) {
+      dispatch(setError('lastName'));
       isValid = false;
     }
 
-    if (!email || !emailRegex.test(email.value)) {
-      dispatch(setError('email'))
+    if (!isEmpty(email.value) || !isEmail(email.value)) {
+      dispatch(setError('email'));
       isValid = false;
     }
 
     return isValid;
-  }
+  };
 
   const onInput = (event: any) => {
-    dispatch(inputToState(event))
-  }
+    dispatch(inputToState(event));
+  };
 
   const handleClick = () => {
     if (validateStepOne()) {
-      history.push(`/collect/2`)
+      dispatch(nextStep());
     }
-  }
+  };
 
   return (
     <React.Fragment>
@@ -136,7 +133,7 @@ const MusicalPreferencesForm = ({
       </Grid>
     </React.Fragment>
   );
-}
+};
 
 const mapState = (state: PersonalInfoState) => ({
   firstName: state.firstName,
@@ -145,6 +142,6 @@ const mapState = (state: PersonalInfoState) => ({
   email: state.email,
 });
 
-const connector = connect(mapState)
+const connector = connect(mapState);
 
 export default connector(MusicalPreferencesForm);

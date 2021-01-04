@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -8,16 +7,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-
-import { useStyles } from './utils';
+import { useStyles } from './styles';
+import { prevStep } from 'store/actionCreators';
 
 const ReviewStep = ({
+    dispatch,
     firstName,
     middleName,
     lastName,
     email,
     preferences
   }: {
+    dispatch: any,
     firstName: FormFieldParams,
     middleName: FormFieldParams,
     lastName: FormFieldParams,
@@ -26,12 +27,10 @@ const ReviewStep = ({
   }) => {
 
   const classes = useStyles();
-  
-  const history = useHistory();
 
   const handleBack = () => {
-    history.push(`/collect/2`)
-  }
+    dispatch(prevStep());
+  };
 
   return (
     <React.Fragment>
@@ -76,7 +75,7 @@ const ReviewStep = ({
       </Grid> 
     </React.Fragment>
   );
-}
+};
 
 const mapState = (state: PersonalInfoState) => ({
   firstName: state.firstName,
@@ -86,7 +85,7 @@ const mapState = (state: PersonalInfoState) => ({
   preferences: state.musicalPreferences.preference,
 });
 
-const connector = connect(mapState)
+const connector = connect(mapState);
 
 
 export default connector(ReviewStep);

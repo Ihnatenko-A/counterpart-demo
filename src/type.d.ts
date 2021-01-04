@@ -1,6 +1,7 @@
 interface PersonalInfoState {
   [key: string] :any;
 
+  step: number
   firstName: {
     value: string
     error: boolean
@@ -42,4 +43,5 @@ type PersonalInfoAction = {
   name: string
   payload: string
   array: Array<string>
+  step: number
 }
